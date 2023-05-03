@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getRandomHex from '../../ulits/getRandomHex';
+import css from './Statistics.module.css';
 
 const Statistics = ({ title, stats }) => {
   return (
-    <section className="statistics">
-      {title && <h2 className="title">{title}</h2>}
-      <ul className="stat-list">
+    <section className={css.statistics}>
+      {title && <h2 className={css.title}>{title}</h2>}
+      <ul className={css['stat-list']}>
         {stats.map(el => (
-          <li key={el.id} className="item">
+          <li
+            key={el.id}
+            className={css.item}
+            style={{ backgroundColor: getRandomHex() }}
+          >
             <span className="label">{el.label}</span>
             <span className="percentage">{el.percentage}%</span>
           </li>
