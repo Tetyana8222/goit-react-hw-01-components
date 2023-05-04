@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import css from './TransactionHistory.module.css';
 
@@ -16,7 +17,7 @@ const TransactionHistory = ({ items }) => {
 
       <tbody>
         {items.map(({ id, type, amount, currency }) => (
-          <tr key={id}>
+          <tr className={css['transaction-line']} key={id}>
             <td>{type}</td>
             <td>{amount}</td>
             <td>{currency}</td>
